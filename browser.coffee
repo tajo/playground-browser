@@ -68,6 +68,18 @@ module.exports.table = (matrix) ->
 	tbl.appendChild tbdy
 	document.body.appendChild tbl
 
+module.exports.file = (callback) ->
+	throw new Error 'Callback is not a function' unless typeof callback is 'function'
+	input = document.createElement 'input'
+	input.setAttribute 'type', 'file'
+	input.setAttribute 'multiple', true
+	input.addEventListener('change', ((e) ->
+			files = e.target.files
+
+			callback files
+		), false);
+	document.body.appendChild input
+
 module.exports.progress = class Progress
 	constructor: (@max, @color = '#00f', @description = 'is finished.') ->
 		@element = document.createElement 'div'
