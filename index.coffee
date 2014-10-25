@@ -9,3 +9,13 @@ do b.hr
 example = new Example
 example.setFoo 'some output'
 b.print example.getFoo()
+
+# Example of table
+table =
+	[
+		['January', 'February', 'March']
+		['April', 'May', 'June']
+		['July', 'August', 'September']
+	]
+
+b.table table
