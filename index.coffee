@@ -22,4 +22,4 @@ b.h3 'Headline 3'
 
 b.list ['January', 'February', 'March']
 
-b.image "adsf"
+b.image "http://quicklol.com/wp-content/uploads/2012/03/omg-bacon-funny-cat.jpg"
