@@ -37,6 +37,10 @@ b.print 'Renders a table, accepts a matrix as only argument'
 b.h3 '#code (value, escaped = true)'
 b.print 'Renders a code block (escaped)'
 
+b.h2 'class browser.progress (max, description)'
+b.h3 '#update (value)'
+b.h3 '#getValue ()'
+
 b.h2 'Examples'
 
 b.print 'Hai hacker! You are all set to rock!'
