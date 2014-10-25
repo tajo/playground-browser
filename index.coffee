@@ -1,41 +1,41 @@
 b = require './browser' #some handy output functions
 Example = require './example' #just an example
 
-b.h1 'Playgroung'
+b.h1 'Playground'
 
-b.h2 'Docs'
+b.h2 'Documentation'
 
-b.print 'There are many cool commands in browser.coffee module'
+b.print 'There are many cool commands in the browser.coffee module'
 
 b.h3 '#h1 (value)'
-b.print 'Renders <h1> containing desired value passed through only argument'
+b.print 'Renders <h1> containing a desired value passed through the only argument'
 
 b.h3 '#h2 (value)'
-b.print 'Renders <h2> containing desired value passed through only argument'
+b.print 'Renders <h2> containing a desired value passed through the only argument'
 
 b.h3 '#h3 (value)'
-b.print 'Renders <h3> containing desired value passed through only argument'
+b.print 'Renders <h3> containing a desired value passed through the only argument'
 
 b.h3 '#print (value, escaped = true)'
-b.print 'Prints value to the output and escape HTML tags'
+b.print 'Prints a value to the output and escape HTML tags'
 
 b.h3 '#reset'
 b.print 'Clean the page'
 
 b.h3 '#image (src)'
-b.print 'Add image from src to the page'
+b.print 'Add an image from src to the page'
 
 b.h3 '#list (list)'
-b.print 'Renders unordered list, accepts list as only argument'
+b.print 'Renders the unordered list, accepts a list as only argument'
 
 b.h3 '#hr'
-b.print 'Renders horizontal line'
+b.print 'Renders a horizontal line'
 
 b.h3 '#table (matrix)'
-b.print 'Renders table, accepts matrix as only argument'
+b.print 'Renders a table, accepts a matrix as only argument'
 
 b.h3 '#code (value, escaped = true)'
-b.print 'Renders code block (escaped)'
+b.print 'Renders a code block (escaped)'
 
 b.h2 'Examples'
 
@@ -52,12 +52,14 @@ b.table [
 	['January', 'February', 'March']
 	['April', 'May', 'June']
 	['July', 'August', 'September']
+	['October', 'November', 'December']
 ]
 
 b.code "b.table [\n
   \t['January', 'February', 'March']\n
   \t['April', 'May', 'June']\n
   \t['July', 'August', 'September']\n
+  \t['October', 'November', 'December']\n
 ]\n
 "
 
