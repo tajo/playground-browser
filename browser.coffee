@@ -1,5 +1,22 @@
-module.exports.print = (value) ->
+module.exports.escapeHtml = (html) ->
+	map =
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  html.replace /[&<>"']/g, (m) ->
+  		map[m]
+
+module.exports.print = (value, escaped = true) ->
 	div = document.createElement 'div'
+	value = module.exports.escapeHtml value if escaped
+	div.innerHTML = value
+	document.body.appendChild div
+
+module.exports.code = (value, escaped = true) ->
+	div = document.createElement 'pre'
+	value = module.exports.escapeHtml value if escaped
 	div.innerHTML = value
 	document.body.appendChild div
 
