@@ -19,3 +19,10 @@ table =
 	]
 
 b.table table
+
+b.h1 'Headline 1'
+b.h2 'Headline 2'
+b.h3 'Headline 3'
+
+list = ['January', 'February', 'March']
+b.list list

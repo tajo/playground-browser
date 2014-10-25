@@ -6,6 +6,29 @@ module.exports.print = (value) ->
 module.exports.reset = ->
 	document.body.innerHTML = ''
 
+module.exports.h1 = (value) ->
+	h1 = document.createElement 'h1'
+	h1.innerHTML = value
+	document.body.appendChild h1
+
+module.exports.h2 = (value) ->
+	h2 = document.createElement 'h2'
+	h2.innerHTML = value
+	document.body.appendChild h2
+
+module.exports.h3 = (value) ->
+	h3 = document.createElement 'h3'
+	h3.innerHTML = value
+	document.body.appendChild h3
+
+module.exports.list = (list) ->
+	ul = document.createElement 'ul'
+	for i in [0..list.length-1]
+		li = document.createElement 'li'
+		li.appendChild document.createTextNode list[i]
+		ul.appendChild li
+	document.body.appendChild ul
+
 module.exports.hr = ->
 	document.body.appendChild document.createElement 'hr'
 
