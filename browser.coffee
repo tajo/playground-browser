@@ -69,13 +69,21 @@ module.exports.table = (matrix) ->
 	document.body.appendChild tbl
 
 module.exports.progress = class Progress
-	constructor: (@max, @description = 'is finished.') ->
+	constructor: (@max, @color = '#00f', @description = 'is finished.') ->
 		@element = document.createElement 'div'
+		@bar = document.createElement 'div'
+		@bar.className = 'progress-bar'
+		@caption = document.createElement 'div'
+
 		document.body.appendChild @element
+		@element.appendChild @bar
+		@element.appendChild @caption
 		@update 0
 
 	update: (@value) ->
-		@element.innerHTML = @value + ' / ' + @max + ' ' + @description
+		@caption.innerHTML = @value + ' / ' + @max + ' ' + @description
+		@bar.style.width = "#{(@value / @max) * 100}%"
+		@bar.style['background-color'] = @color
 
 	getValue: -> @value
 
