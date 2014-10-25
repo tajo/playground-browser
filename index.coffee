@@ -63,7 +63,14 @@ b.code "b.table [\n
 ]\n
 "
 
-
 b.list ['January', 'February', 'March']
+
+progress = new b.progress 1000
+(someHeavyTask = (i) ->
+   setTimeout ->
+      progress.update 1000-i
+      someHeavyTask i if --i+1
+   , 300
+) 1000
 
 b.image "http://quicklol.com/wp-content/uploads/2012/03/omg-bacon-funny-cat.jpg"

@@ -67,3 +67,16 @@ module.exports.table = (matrix) ->
 		tbdy.appendChild tr
 	tbl.appendChild tbdy
 	document.body.appendChild tbl
+
+module.exports.progress = class Progress
+	constructor: (@max, @description = 'is finished.') ->
+		@element = document.createElement 'div'
+		document.body.appendChild @element
+		@update 0
+
+	update: (@value) ->
+		@element.innerHTML = @value + ' / ' + @max + ' ' + @description
+
+	getValue: -> @value
+
+
