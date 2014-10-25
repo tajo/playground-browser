@@ -37,7 +37,7 @@ b.print 'Renders a table, accepts a matrix as only argument'
 b.h3 '#code (value, escaped = true)'
 b.print 'Renders a code block (escaped)'
 
-b.h2 'class browser.progress (max, description)'
+b.h2 'class browser.progress (max, color, description)'
 b.h3 '#update (value)'
 b.h3 '#getValue ()'
 
@@ -69,12 +69,15 @@ b.code "b.table [\n
 
 b.list ['January', 'February', 'March']
 
-progress = new b.progress 1000
+max = 100
+progress = new b.progress max
+progress2 = new b.progress max, '#f00', 'men down'
 (someHeavyTask = (i) ->
    setTimeout ->
-      progress.update 1000-i
+      progress.update max-i
+      progress2.update i
       someHeavyTask i if --i+1
    , 300
-) 1000
+) max
 
 b.image "http://quicklol.com/wp-content/uploads/2012/03/omg-bacon-funny-cat.jpg"
