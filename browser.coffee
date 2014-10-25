@@ -8,6 +8,11 @@ module.exports.escapeHtml = (html) ->
   html.replace /[&<>"']/g, (m) ->
   		map[m]
 
+module.exports.immafakinhacka = () ->
+	document.body.style.color = '#0f0'
+	document.body.style['font-family'] = 'Menlo'
+	document.body.style['background-color'] = '#000'
+
 module.exports.print = (value, escaped = true) ->
 	div = document.createElement 'div'
 	value = module.exports.escapeHtml value if escaped
@@ -53,6 +58,21 @@ module.exports.list = (list) ->
 
 module.exports.hr = ->
 	document.body.appendChild document.createElement 'hr'
+
+module.exports.button = (title, onclick, helpText = '') ->
+	throw new Error 'onClick is not a function' unless typeof onclick is 'function'
+
+	div = document.createElement 'div'
+	div.className = 'help-container'
+	button = document.createElement 'button'
+	button.addEventListener 'click', onclick
+	button.innerHTML = title
+	help = document.createElement 'span'
+	help.className = 'help-text'
+	help.innerHTML = module.exports.escapeHtml helpText
+	div.appendChild button
+	div.appendChild help
+	document.body.appendChild div
 
 module.exports.table = (matrix) ->
 	tbl = document.createElement 'table'
