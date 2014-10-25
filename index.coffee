@@ -21,3 +21,5 @@ b.h2 'Headline 2'
 b.h3 'Headline 3'
 
 b.list ['January', 'February', 'March']
+
+b.image "adsf"

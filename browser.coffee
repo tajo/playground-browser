@@ -21,6 +21,11 @@ module.exports.h3 = (value) ->
 	h3.innerHTML = value
 	document.body.appendChild h3
 
+module.exports.image = (src) ->
+	img = document.createElement 'img'
+	img.setAttribute 'src', src
+	document.body.appendChild img
+
 module.exports.list = (list) ->
 	ul = document.createElement 'ul'
 	for i in [0..list.length-1]
