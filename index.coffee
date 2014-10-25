@@ -1,6 +1,8 @@
 b = require './browser' #some handy output functions
 Example = require './example' #just an example
 
+# do b.immafakinhacka
+
 b.h1 'Playground'
 
 b.h2 'Documentation'
@@ -40,6 +42,9 @@ b.print 'Renders a code block (escaped)'
 b.h3 '#file (callback)'
 b.print 'Renders file input and returns FileList in callback'
 
+b.h3 '#button (title, onclick, help)'
+b.print 'Renders button with onclick action and optional help'
+
 b.h2 'class browser.progress (max, color, description)'
 b.h3 '#update (value)'
 b.h3 '#getValue ()'
@@ -69,6 +74,17 @@ b.code "b.table [\n
   \t['October', 'November', 'December']\n
 ]\n
 "
+
+b.button 'Knock, knock', (() ->
+  alert 'Who is there?')
+  ,'This is sample button with funny onClick action'
+
+b.button 'What does the fox say?', (() ->
+  alert 'Hati hati hati ho!')
+  ,'Click the button a reveal, what does the fox say'
+
+b.button 'Who\'s da hacka?', () ->
+  do b.immafakinhacka
 
 b.list ['January', 'February', 'March']
 
