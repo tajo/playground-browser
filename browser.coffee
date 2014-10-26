@@ -44,6 +44,10 @@ module.exports.dumpObject = (object) ->
 	div.appendChild definitions
 	document.body.appendChild div
 
+module.exports.space = () ->
+	div = document.createElement 'div'
+	div.style.height = '30px'
+	document.body.appendChild div
 
 module.exports.immafakinhacka = () ->
 	document.body.style.color = '#0f0'

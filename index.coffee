@@ -51,11 +51,12 @@ b.h2 'class browser.progress (max, color, description)'
 b.h3 '#update (value)'
 b.h3 '#getValue ()'
 
-do b.hr
+do b.space
 
 b.h2 'Examples'
 
 b.print 'Hai hacker! You are all set to rock!'
+do b.hr
 
 # Example class usage
 example = new Example
