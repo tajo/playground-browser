@@ -41,14 +41,21 @@ b.print 'Renders file input and returns FileList in callback'
 b.h3 '#button (title, onclick, help)'
 b.print 'Renders button with onclick action and optional help'
 
+b.h3 '#getParameters ()'
+b.print 'Return GET parameters as object'
+
+b.h3 '#dumpObject (object)'
+b.print 'Dump object into cool table'
+
 b.h2 'class browser.progress (max, color, description)'
 b.h3 '#update (value)'
 b.h3 '#getValue ()'
 
+do b.hr
+
 b.h2 'Examples'
 
 b.print 'Hai hacker! You are all set to rock!'
-do b.hr
 
 # Example class usage
 example = new Example
