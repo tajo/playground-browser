@@ -23,18 +23,27 @@ module.exports.getParameters = () ->
 module.exports.dumpObject = (object) ->
 	renderObject = (object) ->
 		container = document.createElement 'dl'
-		for key, value of object
+
+		if typeof object is 'number' or typeof object is 'string'
 			dt = document.createElement 'dt'
-			dt.innerHTML = key
-			dd = document.createElement 'dd'
-
-			if typeof value is 'object'
-				dd.appendChild renderObject(value)
-			else
-				dd.innerHTML = String(value)
-
+			dt.innerHTML = String object
 			container.appendChild dt
-			container.appendChild dd
+		else
+			for key, value of object
+				dt = document.createElement 'dt'
+				dt.innerHTML = key
+				dd = document.createElement 'dd'
+
+				if Array.isArray value
+					for item in value
+						dd.appendChild renderObject item
+				else if typeof value is 'object'
+					dd.appendChild renderObject(value)
+				else
+					dd.innerHTML = String value
+
+				container.appendChild dt
+				container.appendChild dd
 
 		container
 
@@ -47,6 +56,32 @@ module.exports.dumpObject = (object) ->
 module.exports.space = () ->
 	div = document.createElement 'div'
 	div.style.height = '30px'
+	document.body.appendChild div
+
+module.exports.input = (title, onsubmit, helpText = '') ->
+	throw new Error 'onSubmit is not a function' unless typeof onsubmit is 'function'
+
+	div = document.createElement 'div'
+	div.className = 'help-container'
+	input = document.createElement 'input'
+	input.style['width'] = '30%'
+	input.style['padding'] = '5px'
+	input.style['margin-right'] = '20px'
+	input.setAttribute 'type', 'text'
+	input.setAttribute 'placeholder', title
+
+	button = document.createElement 'button'
+	button.addEventListener 'click', (e) ->
+		onsubmit input.value
+	button.innerHTML = 'Submit'
+
+	help = document.createElement 'span'
+	help.className = 'help-text'
+	help.innerHTML = module.exports.escapeHtml helpText
+
+	div.appendChild input
+	div.appendChild button
+	div.appendChild help
 	document.body.appendChild div
 
 module.exports.immafakinhacka = () ->

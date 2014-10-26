@@ -38,14 +38,20 @@ b.print 'Renders a code block (escaped)'
 b.h3 '#file (callback)'
 b.print 'Renders file input and returns FileList in callback'
 
-b.h3 '#button (title, onclick, help)'
+b.h3 '#button (title, onclick, helpText)'
 b.print 'Renders button with onclick action and optional help'
+
+b.h3 '#input (title, onsubmit, helpText)'
+b.print 'Renders input with onsubmit action and optional help'
 
 b.h3 '#getParameters ()'
 b.print 'Return GET parameters as object'
 
 b.h3 '#dumpObject (object)'
 b.print 'Dump object into cool table'
+
+b.h3 '#space'
+b.print 'Inserts space'
 
 b.h2 'class browser.progress (max, color, description)'
 b.h3 '#update (value)'
@@ -79,6 +85,12 @@ b.code "b.table [\n
   \t['October', 'November', 'December']\n
 ]\n
 "
+
+b.h3 'Inputs'
+b.input 'What does the fox say?', ((what)->
+  alert what), 'Insert, what does the fox say'
+b.input 'Name', ((what)->
+  alert what), 'Insert your name'
 
 b.h3 'Buttons'
 b.button 'Knock, knock', (() ->
@@ -132,3 +144,8 @@ b.dumpObject
   awesome:
     yes: 'it is'
     no: false
+    array: [ 'a', 'b', (
+        abc: 'd'
+        g: 'b'
+      ) ]
+
