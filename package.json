@@ -1,5 +1,5 @@
 {
-  "name": "browser-playground",
+  "name": "playground-browser",
   "version": "0.0.2",
   "description": "For some fast hacking in your beloved Coffee Script",
   "main": "lib/browser.js",
@@ -8,16 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/janzal/browser-playground.git"
+    "url": "https://github.com/janzal/playground-browser.git"
   },
   "author": "Vojtech Miksu, Jan Zaloudek",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/janzal/browser-playground/issues"
+    "url": "https://github.com/janzal/playground-browser/issues"
   },
   "scripts": {
     "prepublish": "npm run-script build",
     "build": "coffee --compile --output lib/ src/"
   },
-  "homepage": "https://github.com/janzal/browser-playground"
+  "homepage": "https://github.com/janzal/playground-browser"
 }
