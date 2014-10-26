@@ -1,12 +1,8 @@
 b = require './browser' #some handy output functions
 Example = require './example' #just an example
 
-# do b.immafakinhacka
-
 b.h1 'Playground'
-
 b.h2 'Documentation'
-
 b.print 'There are many cool commands in the browser.coffee module'
 
 b.h3 '#h1 (value)'
@@ -60,6 +56,7 @@ example.setFoo 'some output'
 b.print example.getFoo()
 
 # Example of table
+b.h3 'Tables'
 b.table [
 	['January', 'February', 'March']
 	['April', 'May', 'June']
@@ -75,6 +72,7 @@ b.code "b.table [\n
 ]\n
 "
 
+b.h3 'Buttons'
 b.button 'Knock, knock', (() ->
   alert 'Who is there?')
   ,'This is sample button with funny onClick action'
@@ -86,8 +84,10 @@ b.button 'What does the fox say?', (() ->
 b.button 'Who\'s da hacka?', () ->
   do b.immafakinhacka
 
+b.h3 'Unordered list'
 b.list ['January', 'February', 'March']
 
+b.h3 'Progress bars'
 max = 100
 progress = new b.progress max
 progress2 = new b.progress max, '#f00', 'men down'
@@ -101,6 +101,7 @@ progress2 = new b.progress max, '#f00', 'men down'
 
 b.image 'http://quicklol.com/wp-content/uploads/2012/03/omg-bacon-funny-cat.jpg'
 
+b.h3 'Files'
 b.file (files) ->
     b.h2 'Files were loaded!'
 
@@ -109,3 +110,17 @@ b.file (files) ->
       fileNames.push files[i].name if files[i]?
 
     b.list fileNames
+
+b.h3 'Parameters'
+b.code JSON.stringify b.getParameters()
+
+b.h3 'Dump object'
+b.dumpObject
+  hello:
+    world: 1
+    help:
+      me: 2
+      what: 'is happening'
+  awesome:
+    yes: 'it is'
+    no: false

@@ -1,4 +1,4 @@
-module.exports.escapeHtml = (html) ->
+module.exports.escapeHtml = (html = '') ->
 	map =
     '&': '&amp;',
     '<': '&lt;',
@@ -7,6 +7,44 @@ module.exports.escapeHtml = (html) ->
     "'": '&#039;'
   html.replace /[&<>"']/g, (m) ->
   		map[m]
+
+module.exports.getParameters = () ->
+	query = window.location.search.substring 1
+	vars = query.split "&"
+
+	result = {}
+	for i in [0..vars.length-1]
+		pair = vars[i].split '='
+
+		result[pair[0]] = pair[1]
+
+	result
+
+module.exports.dumpObject = (object) ->
+	renderObject = (object) ->
+		container = document.createElement 'dl'
+		container.setAttribute 'compact', true
+		for key, value of object
+			dt = document.createElement 'dt'
+			dt.innerHTML = key
+			dd = document.createElement 'dd'
+
+			if typeof value is 'object'
+				dd.appendChild renderObject(value)
+			else
+				dd.innerHTML = String(value)
+
+			container.appendChild dt
+			container.appendChild dd
+
+		container
+
+	div = document.createElement 'div'
+	div.className = 'dump-container'
+	definitions = renderObject object
+	div.appendChild definitions
+	document.body.appendChild div
+
 
 module.exports.immafakinhacka = () ->
 	document.body.style.color = '#0f0'
