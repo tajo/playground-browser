@@ -23,7 +23,6 @@ module.exports.getParameters = () ->
 module.exports.dumpObject = (object) ->
 	renderObject = (object) ->
 		container = document.createElement 'dl'
-		container.setAttribute 'compact', true
 		for key, value of object
 			dt = document.createElement 'dt'
 			dt.innerHTML = key
