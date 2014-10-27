@@ -8,16 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/janzal/playground-browser.git"
+    "url": "https://github.com/tajo/playground-browser.git"
   },
   "author": "Vojtech Miksu, Jan Zaloudek",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/janzal/playground-browser/issues"
+    "url": "https://github.com/tajo/playground-browser/issues"
   },
   "scripts": {
     "prepublish": "npm run-script build",
     "build": "coffee --compile --output lib/ src/"
   },
-  "homepage": "https://github.com/janzal/playground-browser"
+  "homepage": "https://github.com/tajo/playground-browser"
 }
