@@ -1,3 +1,5 @@
+effect = module.exports.effect = 'vanishIn'
+
 module.exports.escapeHtml = (html = '') ->
 	map =
     '&': '&amp;',
@@ -48,7 +50,7 @@ module.exports.dumpObject = (object) ->
 		container
 
 	div = document.createElement 'div'
-	div.className = 'dump-container'
+	div.className = 'dump-container ' + "magictime #{effect}"
 	definitions = renderObject object
 	div.appendChild definitions
 	document.body.appendChild div
@@ -62,7 +64,7 @@ module.exports.input = (title, onsubmit, helpText = '') ->
 	throw new Error 'onSubmit is not a function' unless typeof onsubmit is 'function'
 
 	div = document.createElement 'div'
-	div.className = 'help-container'
+	div.className = 'help-container ' + "magictime #{effect}"
 	input = document.createElement 'input'
 	input.style['width'] = '30%'
 	input.style['padding'] = '5px'
@@ -91,12 +93,14 @@ module.exports.immafakinhacka = () ->
 
 module.exports.print = (value, escaped = true) ->
 	div = document.createElement 'div'
+	div.className = "magictime #{effect}"
 	value = module.exports.escapeHtml value if escaped
 	div.innerHTML = value
 	document.body.appendChild div
 
 module.exports.code = (value, escaped = true) ->
 	div = document.createElement 'pre'
+	div.className = "magictime #{effect}"
 	value = module.exports.escapeHtml value if escaped
 	div.innerHTML = value
 	document.body.appendChild div
@@ -106,21 +110,25 @@ module.exports.reset = ->
 
 module.exports.h1 = (value) ->
 	h1 = document.createElement 'h1'
+	h1.className = "magictime #{effect}"
 	h1.innerHTML = value
 	document.body.appendChild h1
 
 module.exports.h2 = (value) ->
 	h2 = document.createElement 'h2'
+	h2.className = "magictime #{effect}"
 	h2.innerHTML = value
 	document.body.appendChild h2
 
 module.exports.h3 = (value) ->
 	h3 = document.createElement 'h3'
+	h3.className = "magictime #{effect}"
 	h3.innerHTML = value
 	document.body.appendChild h3
 
 module.exports.image = (src) ->
 	img = document.createElement 'img'
+	img.className = "magictime #{effect}"
 	img.setAttribute 'src', src
 	document.body.appendChild img
 
@@ -130,6 +138,7 @@ module.exports.list = (list) ->
 		li = document.createElement 'li'
 		li.appendChild document.createTextNode list[i]
 		ul.appendChild li
+	ul.className = "magictime #{effect}"
 	document.body.appendChild ul
 
 module.exports.hr = ->
@@ -139,7 +148,7 @@ module.exports.button = (title, onclick, helpText = '') ->
 	throw new Error 'onClick is not a function' unless typeof onclick is 'function'
 
 	div = document.createElement 'div'
-	div.className = 'help-container'
+	div.className = 'help-container ' + "magictime #{effect}"
 	button = document.createElement 'button'
 	button.addEventListener 'click', onclick
 	button.innerHTML = title
@@ -162,6 +171,7 @@ module.exports.table = (matrix) ->
 			tr.appendChild td
 		tbdy.appendChild tr
 	tbl.appendChild tbdy
+	tbl.className = "magictime #{effect}"
 	document.body.appendChild tbl
 
 module.exports.file = (callback) ->
@@ -174,6 +184,7 @@ module.exports.file = (callback) ->
 
 			callback files
 		), false);
+	input.className = "magictime #{effect}"
 	document.body.appendChild input
 
 module.exports.progress = class Progress
@@ -183,6 +194,7 @@ module.exports.progress = class Progress
 		@bar.className = 'progress-bar'
 		@caption = document.createElement 'div'
 
+		@element.className = "magictime #{effect}"
 		document.body.appendChild @element
 		@element.appendChild @bar
 		@element.appendChild @caption
