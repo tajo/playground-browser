@@ -1,6 +1,6 @@
 {
   "name": "playground-browser",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "For some fast hacking in your beloved Coffee Script",
   "main": "lib/browser.js",
   "scripts": {
