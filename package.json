@@ -1,26 +1,26 @@
 {
-  "name": "playground-browser",
-  "version": "0.0.4",
-  "dependencies": {
-    "markdown": "^0.5.0"
-  },
-  "description": "For some fast hacking in your beloved Coffee Script",
-  "main": "lib/browser.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tajo/playground-browser.git"
-  },
-  "author": "Vojtech Miksu, Jan Zaloudek",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tajo/playground-browser/issues"
-  },
-  "scripts": {
-    "prepublish": "npm run-script build",
-    "build": "coffee --compile --output lib/ src/"
-  },
-  "homepage": "https://github.com/tajo/playground-browser"
+	"name": "playground-browser",
+	"version": "0.0.5",
+	"dependencies": {
+		"markdown": "^0.5.0"
+	},
+	"description": "For some fast hacking in your beloved Coffee Script",
+	"main": "lib/browser.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tajo/playground-browser.git"
+	},
+	"author": "Vojtech Miksu, Jan Zaloudek",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/tajo/playground-browser/issues"
+	},
+	"scripts": {
+		"prepublish": "npm run-script build",
+		"build": "coffee --compile --output lib/ src/"
+	},
+	"homepage": "https://github.com/tajo/playground-browser"
 }

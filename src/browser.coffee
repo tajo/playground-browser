@@ -2,13 +2,14 @@ markdown = require( "markdown" ).markdown
 
 module.exports.escapeHtml = (html = '') ->
 	map =
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;'
-  html.replace /[&<>"']/g, (m) ->
-  		map[m]
+		'&': '&amp;'
+		'<': '&lt;'
+		'>': '&gt;'
+		'"': '&quot;'
+		"'": '&#039;'
+
+	html.replace /[&<>"']/g, (m) ->
+		map[m]
 
 module.exports.getParameters = () ->
 	query = window.location.search.substring 1
@@ -17,9 +18,7 @@ module.exports.getParameters = () ->
 	result = {}
 	for i in [0..vars.length-1]
 		pair = vars[i].split '='
-
 		result[pair[0]] = pair[1]
-
 	result
 
 module.exports.dumpObject = (object) ->
